@@ -45,12 +45,12 @@ func StartAndEndOfTheMonth(t time.Time) (time.Time, time.Time) {
 }
 
 func StartOfTheMonth(t time.Time) time.Time {
-    return time.Date(t.Year(), t.Month(), 0, t.Hour(), t.Minute(), t.Second(), t.Nanosecond(), t.Location())
+    return time.Date(t.Year(), t.Month(), 1, t.Hour(), t.Minute(), t.Second(), t.Nanosecond(), t.Location())
 }
 
 func EndOfTheMonth(t time.Time) time.Time {
     t = t.AddDate(0, 1, 0)
-    t = time.Date(t.Year(), t.Month(), 0, t.Hour(), t.Minute(), t.Second(), t.Nanosecond(), t.Location())
+    t = time.Date(t.Year(), t.Month(), 1, t.Hour(), t.Minute(), t.Second(), t.Nanosecond(), t.Location())
     return t.AddDate(0, 0, -1)
 }
 

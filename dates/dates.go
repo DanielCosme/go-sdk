@@ -40,3 +40,17 @@ func EndOfWeek(t time.Time) time.Time {
     return t
 }
 
+func StartAndEndOfTheMonth(t time.Time) (time.Time, time.Time) {
+    return StartOfTheMonth(t), EndOfTheMonth(t)
+}
+
+func StartOfTheMonth(t time.Time) time.Time {
+    return time.Date(t.Year(), t.Month(), 0, t.Hour(), t.Minute(), t.Second(), t.Nanosecond(), t.Location())
+}
+
+func EndOfTheMonth(t time.Time) time.Time {
+    t = t.AddDate(0, 1, 0)
+    t = time.Date(t.Year(), t.Month(), 0, t.Hour(), t.Minute(), t.Second(), t.Nanosecond(), t.Location())
+    return t.AddDate(0, 0, -1)
+}
+
